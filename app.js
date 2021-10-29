@@ -2,6 +2,7 @@ const express = require('express');
 const Razorpay = require('razorpay');
 const app = express();
 const bodyParser = require('body-parser');
+require('dotenv').config()
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -11,8 +12,8 @@ app.use(bodyParser.urlencoded({
   }));
 
 const razorpay = new Razorpay({
-    key_id: 'rzp_test_ViX3voK9LPsV3Y',
-    key_secret: '9ohtQYV6vfdfgJJL0WmQkpm7'
+    key_id: process.env.KEY_ID,
+    key_secret: process.env.KEY_SECRET
 })
 //
 // app.get('/',(req,res)=>{
